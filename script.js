@@ -135,27 +135,22 @@ function variaveisHtml(variaveis) {
     })
 
     let vars = []
-    const faixaC = document.querySelector('.selectC')
+    // const faixaC = document.querySelector('.selectC')
     switch(variaveis) {
-        case "2":
-            faixaC.value = "B"
-            vars = {'A': 0, 'B': 1}
-            break
+        // case "2":
+        //     faixaC.value = "B"
+        //     vars = {'A': 0, 'B': 1}
+        //     break
         case "3":
-            faixaC.value = "C"
             vars = {'A': 0, 'C': 2, 'B': 1}
             break
         case "4":
-            faixaC.value = "C"
             vars = {'A': 0, 'C': 2, 'B': 1, 'D': 3}
             break
     }
 
     let seq = {}
     for (let v in vars) {
-        if (Object.keys(vars).length == 2 && v == 'B'){
-            v = 'C'
-        }
         document.querySelectorAll(`.${v}`).forEach(f => {
             f.style.display = 'block'
         })
@@ -170,13 +165,13 @@ function variaveisHtml(variaveis) {
 function verificarVariaveis(valores, sequencia) {
     let qtdVariareis = Object.keys(sequencia).length
     let regra = []
-    if (qtdVariareis == 2) {
-        regra = ["1", "1"]
-    }
-    else if (qtdVariareis == 3) {
+    // if (qtdVariareis == 2) {
+    //     regra = ["1", "1"]
+    // }
+    if (qtdVariareis == 3) {
         regra = ["23", "1", "12"]
     }
-    else if (qtdVariareis == 4) {
+    if (qtdVariareis == 4) {
         regra = ["23", "23", "12", "12"]
     }
     return verificarCadaCelula(valores, sequencia, regra)
