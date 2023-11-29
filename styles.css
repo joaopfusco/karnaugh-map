@@ -1,0 +1,129 @@
+body {
+    background-color: darkgrey;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.map {
+    background-color: black;
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    border: solid 5px black;
+}
+
+.cell {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 200%;
+}
+
+select {
+    font-size: 16px;
+    margin: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.faixa {
+    background-color: black;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.A {
+    width: 5px;
+    height: 15%;
+    left: 50%;
+    top: 30%;;
+    display: none
+}
+
+.B1 {
+    width: 5px;
+    height: 15%;
+    left: 37.4%;
+    top: 88%;
+    display: none
+}
+
+.B2 {
+    width: 5px;
+    height: 15%;
+    left: 62.6%;
+    top: 88%;
+    display: none
+}
+
+.C {
+    width: 10%;
+    height: 5px;
+    left: 20%;
+    top: 60%;
+    display: none
+}
+
+.D1 {
+    width: 10%;
+    height: 5px;
+    left: 80%;
+    top: 47.3%;
+    display: none
+}
+
+.D2 {
+    width: 10%;
+    height: 5px;
+    left: 80%;
+    top: 72.7%;
+    display: none
+}
+
+label {
+    margin: 10px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+input {
+    margin: 5px;
+    font-weight: bolder;
+    font-size: 10px;
+}
+
+.selectB {
+    margin-top: 50px;
+}

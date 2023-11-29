@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karnaugh</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <center>
+        <label for="select">Escolha a quantidade de variáveis:</label>
+        <select id="select" value="4">
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+        </select>
+        <button>Submeter</button>
+    </center>
+    <div class="variaveis">
+        <div class="faixa A">
+            <select class="selectA" value="A">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+        </div>
+        <div class="faixa B B1">
+            <select class="selectB" value="B">
+                <option value="B">B</option>
+                <option value="A">A</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+        </div>
+        <div class="faixa B B2"></div>
+        <div class="faixa C">
+            <select class="selectC" value="C">
+                <option value="C">C</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="D">D</option>
+            </select>
+        </div>
+        <div class="faixa D D1">
+            <select class="selectD" value="D">
+                <option value="D">D</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+        </div>
+        <div class="faixa D D2"></div>
+    </div>
+    <div class="map"></div>
+    <script src="script.js"></script>
+</body>
+</html>
