@@ -5,7 +5,7 @@ let linhas = 0
 let colunas = 0
 let padrao = 0
 
-botao.onclick = function() {
+function gerarMapa() {
     const select = document.querySelector('#select').value
     
     if (select == 3) {
@@ -24,6 +24,10 @@ botao.onclick = function() {
         let valores = gerarMapaFinal(linhas, colunas, padrao)
         verificar = verificarVariaveis(valores, sequencia)
     } 
+}
+
+botao.onclick = function() {
+    gerarMapa();
 }
 
 function padraoDeValor(padrao) {
@@ -206,3 +210,33 @@ function verificarCadaCelula(valores, sequencia, regra) {
     }
     return 1
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const selects = document.querySelectorAll(".variaveis select");
+
+    function trocarValores(selectAlterado) {
+        let novoValor = selectAlterado.value;
+
+        selects.forEach(select => {
+            if (select !== selectAlterado && select.value === novoValor) {
+                let antigoValor = selectAlterado.dataset.oldValue;
+                select.value = antigoValor;
+                selectAlterado.dataset.oldValue = novoValor;
+                select.dataset.oldValue = antigoValor;
+            }
+        });
+    }
+
+    selects.forEach(select => {
+        select.dataset.oldValue = select.value;
+
+        select.addEventListener("focus", function () {
+            this.dataset.oldValue = this.value;
+        });
+
+        select.addEventListener("change", function () {
+            trocarValores(this);
+            gerarMapa();
+        });
+    });
+});
