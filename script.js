@@ -1,5 +1,4 @@
 const mapHtml = document.querySelector('.map')
-const botao = document.querySelector('button')
 
 let linhas = 0
 let colunas = 0
@@ -24,10 +23,6 @@ function gerarMapa() {
         let valores = gerarMapaFinal(linhas, colunas, padrao)
         verificar = verificarVariaveis(valores, sequencia)
     } 
-}
-
-botao.onclick = function() {
-    gerarMapa();
 }
 
 function padraoDeValor(padrao) {
@@ -213,6 +208,22 @@ function verificarCadaCelula(valores, sequencia, regra) {
 
 document.addEventListener("DOMContentLoaded", function () {
     const selects = document.querySelectorAll(".variaveis select");
+    const selectVariaveis = document.querySelector("#select");
+    const botao = document.querySelector("button");
+
+    function atualizarOpcoesVariaveis() {
+        const qtdVariaveis = selectVariaveis.value;
+        
+        selects.forEach(select => {
+            Array.from(select.options).forEach(option => {
+                if (option.value === "D") {
+                    option.hidden = qtdVariaveis == 3;
+                }
+            });
+
+            select.value = select.className.replace('select', '');
+        });
+    }
 
     function trocarValores(selectAlterado) {
         let novoValor = selectAlterado.value;
@@ -225,6 +236,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 select.dataset.oldValue = antigoValor;
             }
         });
+
+        gerarMapa();
     }
 
     selects.forEach(select => {
@@ -236,7 +249,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         select.addEventListener("change", function () {
             trocarValores(this);
-            gerarMapa();
         });
+    });
+
+    botao.addEventListener("click", function () {
+        atualizarOpcoesVariaveis();
+        gerarMapa();
     });
 });
